@@ -1,0 +1,379 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "id",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "createdAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "start",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "end",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountPaid",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address payable",
+            "name": "serviceProvider",
+            "type": "address"
+          },
+          {
+            "internalType": "address payable",
+            "name": "customer",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct BookIt.Booking",
+        "name": "booking",
+        "type": "tuple"
+      }
+    ],
+    "name": "BookingAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "id",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "uint256",
+            "name": "createdAt",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "start",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "end",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amountPaid",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address payable",
+            "name": "serviceProvider",
+            "type": "address"
+          },
+          {
+            "internalType": "address payable",
+            "name": "customer",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "approved",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct BookIt.Booking",
+        "name": "booking",
+        "type": "tuple"
+      }
+    ],
+    "name": "BookingApproved",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "serviceProvider",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "customer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "bookingId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "BookingCanceled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "serviceProvider",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "customer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bytes32",
+        "name": "bookingId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "BookingClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "address",
+            "name": "owner",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rate",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookMon",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookTue",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookWed",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookThur",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookFri",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookSat",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "canBookSun",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "startOfDay",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "endOfDay",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct BookIt.Profile",
+        "name": "profile",
+        "type": "tuple"
+      }
+    ],
+    "name": "ProfileCreatedOrUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
+    ],
+    "name": "ProfileRemoved",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "rate",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookMon",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookTue",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookWed",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookThur",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookFri",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookSat",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "canBookSun",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "startOfDay",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "endOfDay",
+        "type": "uint256"
+      }
+    ],
+    "name": "CreateOrUpdateProfile",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "bookingId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CancelBooking",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "bookingId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "CollectFunds",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "bookingId",
+        "type": "bytes32"
+      }
+    ],
+    "name": "ApproveBooking",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address payable",
+        "name": "serviceProvider",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "startTime",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "endTime",
+        "type": "uint256"
+      }
+    ],
+    "name": "Book",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "payable",
+    "type": "function",
+    "payable": true
+  }
+]

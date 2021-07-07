@@ -4,3 +4,33 @@ type Gravatar @entity {
   displayName: String!
   imageUrl: String!
 }
+
+type Profile @entity {
+    id: ID!
+    owner: Bytes!
+    rate: BigInt!
+    canBookMon: Boolean
+    canBookTue: Boolean
+    canBookWed: Boolean
+    canBookThur: Boolean
+    canBookFri: Boolean
+    canBookSat: Boolean
+    canBookSun: Boolean
+    bookings: [Booking!] @derivedFrom(field: "profile")
+}
+
+type Booking @entity {
+    id: ID!
+    profile: Profile!
+    customer: Customer!
+    start: BigInt!
+    end: BigInt!
+    amountPaid: BigInt!
+    approved: Boolean!
+    createdAt: BigInt!
+}
+
+type Customer @entity {
+    id: ID!
+    bookings: [Booking!] @derivedFrom(field: "customer")
+}
